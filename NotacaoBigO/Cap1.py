@@ -1,6 +1,6 @@
 #633ns por loop
 def soma(n):
-    soma = 0 
+    soma = 0
     for x in range(n+1):
         soma+= x
 
