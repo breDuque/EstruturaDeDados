@@ -6,7 +6,7 @@ loopIntMergeSort = 0
 loopExtHeapSort = 0
 loopIntHeapSort = 0
 loopExtQuickSort = 0
-loopIntQUickSort = 0
+loopIntQuickSort = 0
 
 
 def testAllMethods(methodList, arrayLength, arrayType):
@@ -23,18 +23,26 @@ def testAllMethods(methodList, arrayLength, arrayType):
         antesInterno = t.time()
 
         if method == quickSort:
+            global loopIntQuickSort
+            global loopExtQuickSort
             print("* Devido ao quicksort exceder o limite de recursão com 1000 elementos,\n  todos os testes foram feitos usando arrays com 997 elementos")
             quickSortArray = arrayType(997)
             n = len(quickSortArray)
             method(quickSortArray.copy(), 0, n-1)
-            print("Externo: {}".format(loopExtQuickSort),
-                  "\nInterno: {}".format(loopIntQUickSort))
+            print("Externo: {}".format(loopExtQuickSort),"\nInterno: {}".format(loopIntQuickSort))
+            loopIntQuickSort, loopExtQuickSort = 0, 0
         elif method == heapSort:
+            global loopExtHeapSort
+            global loopIntHeapSort
             method(array.copy())
             print("Externo: {}".format(loopExtHeapSort),"\nInterno: {}".format(loopIntHeapSort))
+            loopExtHeapSort, loopIntHeapSort = 0, 0
         elif method == mergeSort:
+            global loopExtMergeSort
+            global loopIntMergeSort
             method(array.copy())
             print("Externo: {}".format(loopExtMergeSort),"\nInterno: {}".format(loopIntMergeSort))
+            loopExtMergeSort, loopIntMergeSort = 0, 0
         else:
             print("{}\n{}".format(method(array.copy())[0], method(array.copy())[1]))
 
@@ -238,8 +246,8 @@ def quickSortPartition(vetor, min, max):
     pivot = vetor[max]
 
     for j in range(min, max):
-        global loopIntQUickSort
-        loopIntQUickSort += 1
+        global loopIntQuickSort
+        loopIntQuickSort += 1
         if vetor[j] <= pivot:
 
             i = i+1
