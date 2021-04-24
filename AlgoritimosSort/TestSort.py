@@ -265,7 +265,11 @@ methodList = [bubbleSort, selectionSort, insertionSort,
 testAllMethods(methodList, 1000, SortedIntArray)
 testAllMethods(methodList, 1000, InvertedIntArray)
 testAllMethods(methodList, 1000, RandomIntArray)
+testAllMethods(methodList, 1000, RandomIntArray)
+testAllMethods(methodList, 1000, RandomIntArray)
 
 testAllMethods(methodList, 10000, SortedIntArray)
 testAllMethods(methodList, 10000, InvertedIntArray)
+testAllMethods(methodList, 10000, RandomIntArray)
+testAllMethods(methodList, 10000, RandomIntArray)
 testAllMethods(methodList, 10000, RandomIntArray)
